@@ -1,0 +1,38 @@
+
+Name:                pureFNV1a
+
+-- The package version. See the Haskell package versioning policy
+-- (http://www.haskell.org/haskellwiki/Package_versioning_policy) for
+-- standards guiding when and how versions should be incremented.
+Version:             0.1
+
+Synopsis:            FNV-1a hash calculator in pure Haskell
+Description:      A Haskell-only implementation of the FNV-1a non-cryptographic hash algorithm.
+
+License:             BSD3
+License-file:        LICENSE
+
+Author:              Zach Davis
+Maintainer:          zdavkeos@gmail.com
+Category:            Data
+Build-type:          Simple
+
+Extra-source-files: Test/fnv1a-test.hs, Test/fnv1a-test.hs, README.md
+Cabal-version:       >=1.10
+
+Library
+  Exposed-modules:     Data.Digest.Pure.FNV1a
+  Build-depends: base >= 4 && < 5, crypto-api, cereal, bytestring, binary, tagged
+  default-language: Haskell2010
+
+Executable fnv1a
+  main-is: Test/fnv1a.hs
+  build-depends: base >= 4 && < 5, crypto-api, cereal, bytestring, binary, tagged
+  default-language: Haskell2010
+
+Test-Suite test-fnv1a
+  type: exitcode-stdio-1.0
+  main-is: Test/fnv1a-test.hs
+  build-depends: base >= 4 && < 5, crypto-api, cereal, bytestring, binary, tagged, QuickCheck
+  default-language: Haskell2010
+
